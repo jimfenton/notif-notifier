@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+  
+  <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+  <link rel="stylesheet" href="css/foundation.css">
+  <script src="js/vendor/modernizr.js"></script>
+  <title>Clockwatcher</title>
+<script>
+    function authorize() {
+    var form = document.getElementById('form')
+    form.setAttribute("method", "post")
+    agent = document.getElementById("agent").value
+    form.setAttribute("action", agent+"/authorize")
+    form.submit()
+    }
+    </script>
+
+</head><body>
+<div class="row">
+  <div class="large-12 columns">
+    <h1>Clockwatcher</h1>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="large-8 medium-8 columns">
+
+    <p>Clockwatcher is a test application that generates a n&#x014d;tif with the
+current time once a minute. When you initially sign up for n&#x014d;tifs from
+Clockwatcher (or when Clockwatcher restarts), it generates and sends a
+new notif. Thereafter, it updates this n&#x014d;tif once per minute until
+midnight, and then creates a new one. N&#x014d;tifs from Clockwatcher have an
+expiration 24 hours in the future.</p>
+
+<p>To sign up for n&#x014d;tifs from Clockwatcher, fill in the address of
+your n&#x014d;tif agent and press the "N&#x014d;tify me!" button below. Your n&#x014d;tif
+agent will prompt you to confirm that you want to receive notifs from
+Clockwatcher; you can edit the name and maximum priority Clockwatcher
+is allowed to send. The name is only used to help you keep track of
+what n&#x014d;tifs you have authorized. Clockwatcher sends its n&#x014d;tifs at the
+lowest priority, Informational, so the priority setting doesn't matter.</p>
+  </div>
+  <div class="large-4 medium-4 columns">
+    <img src="rihard-Clock-Calendar-1.png" alt="Clock picture" />
+  </div>
+</div>
+
+
+<form method="post" id="form">
+  <div class="row">
+    <div class="large=4 medium-4 columns">
+
+      <label>Notif agent URL</label>
+      <input type="text" id="agent" name="agent" /><br>
+      <input type="hidden" name="name" value="Clockwatcher" />
+      <input type="hidden" name="maxpri" value="4" />
+      <input type="hidden" name="domain" value="example	.net" />
+      <input type="hidden" name="redirect" value="http://clock.example.net/cgi-bin/saveauth.py" />
+<button type="button" alt="Notif button" onclick="authorize()">N&#x014d;tify me!</button><br>
+    </div>
+  </div>
+</form>
+</body>
+</html>
